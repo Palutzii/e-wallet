@@ -1,0 +1,604 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Trebuchet MS", serif;
+}
+
+#root {
+    height: 100vh;
+    position: relative;
+}
+
+.site-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+body {
+    background-color: #f1f1fb;
+    color: #061a3d;
+}
+
+.wrap {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.title-container {
+    display: flex;
+    flex-flow: column wrap;
+    font-size: 14px;
+    text-align: center;
+    gap: 2px;
+}
+
+.title-container h2 {
+    font-size: 16px;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    height: 100%;
+}
+
+.container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation {
+    margin-top: 5rem;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-list{
+    list-style: none;
+}
+
+.nav-item a {
+    color: #646464;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-item a:not(.active-nav) {
+    text-decoration: none;
+}
+
+.active-nav {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-color: #061a3d;
+}
+
+.active-nav svg, .active-nav a {
+    color: #061a3d;
+}
+
+.active-nav span {
+    color: #061a3d;
+}
+
+.nav-item {
+    margin-bottom: 2.5rem;
+}
+
+.nav-item a:hover {
+    color: #061a3d;
+}
+
+aside {
+    position: relative;
+    border-right: 1px solid darkgray;
+    padding: 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 210px;
+    height: 100%;
+
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #061a3d;
+    padding: 4px 16px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 200ms ease-in-out;
+    border: none;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: #101010;
+    opacity: 60%;
+}
+
+.btn:disabled:hover {
+    transform: none;
+    cursor: not-allowed;
+}
+
+.cancel {
+    background-color: #7c1515;
+}
+
+.account-info-block {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.account-info-elm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: rgba(16, 76, 140, 0.82);
+    color: #fff;
+}
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.info-image svg{
+    opacity: 60%;
+}
+
+.cards-info {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 10px 10px 28px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 28px -21px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 28px -21px rgba(0,0,0,0.75);
+    max-width: 300px;
+    padding: 3rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.no-cards div:first-child {
+    margin-bottom: 2rem;
+    opacity: 80%;
+}
+
+.all-cards-title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.all-cards-safety-btn {
+    text-align: center;
+}
+
+.card {
+    border-radius: 8px;
+    /* transition: all 200ms ease; */
+    perspective: 1000px;
+    width: calc(250px + 4rem);
+    height: calc(125px + 4rem);
+}
+
+.card-inner {
+    position: relative;
+    width: calc(250px + 4rem);
+    height: calc(125px + 4rem);
+    border-radius: 8px;
+    transition: transform 100ms;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background: rgb(46,46,46);
+    font-weight: 700;
+    color: silver;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    width: 100%;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    width: 100%;
+
+}
+
+.card-side-inner {
+    padding: 1rem 2rem;
+}
+
+.card-inner.wox {
+    background: rgb(46,46,46);
+    background: linear-gradient(45deg, rgba(46,46,46,1) 0%, rgba(17,17,17,1) 43%, rgba(5,5,5,1) 100%);
+    color: silver;
+    font-weight: 700;
+}
+
+.card-inner.visa {
+    background: rgb(0,47,154);
+    background: linear-gradient(45deg, rgba(0,47,154,1) 0%, rgba(6,20,131,1) 43%, rgba(9,9,121,1) 73%, rgba(2,0,36,1) 100%);
+    color: silver;
+    font-weight: 700;
+}
+
+.card-inner.mastercard {
+    background: rgb(212,175,55);
+    background: linear-gradient(45deg, rgba(212,175,55,1) 0%, rgba(236,195,62,1) 43%, rgba(121,100,32,1) 100%);
+    color: #333;
+    font-weight: 700;
+}
+
+.card-top {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.wifi-icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.wifi-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chip {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.card-number {
+    font-size: 20px;
+    font-family: monospace;
+    margin-bottom: 5px;
+}
+
+.expire {
+    font-family: monospace;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-holder {
+    font-family: monospace;
+    font-size: 16px;
+}
+.chip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back-line {
+    height: 50px;
+    background-color: #333;
+    margin-top: 30px;
+}
+
+.ccv-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ccv {
+    background-color: #fff;
+    text-align: center;
+    padding: 4px 8px;
+    color: #333;
+}
+
+.card-list {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    background-color: #fff;
+    min-height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.active-card-section {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.active.card:hover {
+    cursor: pointer;
+}
+
+.card-head {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inactive-card-section {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.inactive-card:hover {
+    cursor: pointer;
+}
+
+.inactive-card:nth-of-type(2) .remove-btn {
+    top: 45px;
+}
+
+.inactive-card:nth-of-type(3) {
+    position: absolute;
+    top: 80px;
+}
+
+.inactive-card:nth-of-type(4) {
+    position: absolute;
+    top: 130px;
+}
+
+.inactive-card .remove-btn {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: none;
+    width: 24px;
+    height: 24px;
+    border: none;
+
+}
+
+.remove-btn:hover {
+    cursor: pointer;
+}
+
+.remove-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.new-card-container {
+    margin-top: 10rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1080px;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.form-expire {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0;
+}
+
+.form-expire input {
+    width: 50px;
+}
+
+input {
+    border: none;
+    border-radius: 8px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.expire input {
+    width: 4rem;
+}
+
+footer {
+    margin-top: auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* Reset <select> defaults */
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    background: none;
+    color: inherit;
+    box-shadow: none;
+}
+select::-ms-expand {
+    display: none;
+}
+/* Custom Select wrapper */
+.select {
+    position: relative;
+    display: flex;
+    width: calc(108px + 2rem);
+    background: #061a3d;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+}
+.select select {
+    flex: 1;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    transition: 0.25s all ease;
+    pointer-events: none;
+}
+.select:hover::after {
+    color: #1a6eea;
+}
+
+option {
+    background: #061a3d;
+}
+
+select option:checked {
+    background: #fff;
+    color: #061a3d;
+}
+
+.blocks {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+}
+
+.profile-block {
+    margin-top: 4rem;
+    width: 250px;
+    height: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 10px 10px 28px -21px rgba(0,0,0,0.75);
+}
+
+.profile-img-container {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 2rem;
+}
+
+.profile-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #061a3d;
+}
+
+.profile-names {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.profile-address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.profile-registered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.no-cards-extra-div {
+    width: calc(250px + 4rem);
+    height: calc(125px + 4rem);
+}
+
+.form-two-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
