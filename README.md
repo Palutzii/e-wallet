@@ -1,8 +1,83 @@
-# React + Vite
+# Credit Card Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## Overview
+
+This is a React-based web application designed to manage credit cards. Users can add, remove, and toggle the safety of their credit cards. The app also features a preview of the card being created.
+
+---
+
+## Features
+
+- **Add up to 4 Credit Cards**: Limitation to prevent clutter.
+- **Remove Existing Credit Cards**: Easily remove cards you no longer need.
+- **Toggle Safety Feature**: Mask and unmask card numbers.
+- **Preview Card**: See how your card will look like while adding it.
+- **Display Active and Inactive Cards**: Easily switch between active and inactive cards.
+
+---
+
+## Technologies Used
+
+- React
+- Redux Toolkit
+- React Router
+- CSS
+
+---
+
+## Prerequisites
+
+- Node.js
+- npm
+
+---
+
+## Installation
+
+1. **Clone the Repository**
+
+    ```bash
+    git clone https://github.com/YourUsername/YourRepositoryName.git
+    ```
+
+2. **Navigate to the Directory**
+
+    ```bash
+    cd YourRepositoryName
+    ```
+
+3. **Install Dependencies**
+
+    ```bash
+    npm install
+    ```
+
+4. **Start the Project**
+
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## Usage
+
+1. **Adding a Card**: Navigate to the "Add a Card" section and fill in the card details.
+2. **Removing a Card**: Click the trash icon next to the card you wish to remove.
+3. **Toggle Safety**: Click the "Toggle Safety" button to mask/unmask card numbers.
+
+---
